@@ -1,4 +1,4 @@
-module github.com/emersion/go-mls
+module github.com/matjam/go-mls
 
 go 1.24.0
 
