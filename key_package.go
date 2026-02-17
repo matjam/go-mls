@@ -119,6 +119,12 @@ func (pkg *KeyPackage) verifySignature() bool {
 	return pkg.cipherSuite.verifyWithLabel(pkg.leafNode.signatureKey, []byte("KeyPackageTBS"), rawTBS, pkg.signature)
 }
 
+// VerifySignature checks whether the KeyPackage's signature is valid.
+// It verifies that the signature was produced by the leaf node's signature key.
+func (pkg *KeyPackage) VerifySignature() bool {
+	return pkg.verifySignature()
+}
+
 // verify performs KeyPackage verification as described in RFC 9420 section 10.1.
 func (pkg *KeyPackage) verify(ctx *groupContext) error {
 	if pkg.version != ctx.version {
